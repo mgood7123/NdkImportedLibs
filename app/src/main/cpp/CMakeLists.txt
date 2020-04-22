@@ -44,6 +44,36 @@ add_library(avutil SHARED IMPORTED)
 add_library(swresample SHARED IMPORTED)
 add_library(swscale SHARED IMPORTED)
 
+set_target_properties( avcodec
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libavcodec.so
+        )
+set_target_properties(  avdevice
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libavdevice.so
+        )
+set_target_properties( avfilter
+        PROPERTIES IMPORTED_LOCATION
+        ../../../..//libs/libavfilter.so
+        )
+set_target_properties( avformat
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libavformat.so
+        )
+set_target_properties( avutil
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libavutil.so
+        )
+set_target_properties( swresample
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libswresample.so
+        )
+
+set_target_properties( swscale
+        PROPERTIES IMPORTED_LOCATION
+        ../../../../libs/libswscale.so
+        )
+
 target_link_libraries( # Specifies the target library.
                        native-lib
 
