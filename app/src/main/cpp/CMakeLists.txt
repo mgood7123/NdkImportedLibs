@@ -36,7 +36,8 @@ find_library( # Sets the name of the path variable.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
-set(LIBSDIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../libs/android-${CMAKE_ANDROID_ARCH_ABI})
+#set(LIBSDIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../libs/android-${CMAKE_ANDROID_ARCH_ABI})
+set(LIBSDIR ${CMAKE_CURRENT_SOURCE_DIR}/libs/android-${CMAKE_ANDROID_ARCH_ABI})
 
 add_library(avcodec SHARED IMPORTED)
 add_library(avdevice SHARED IMPORTED)
