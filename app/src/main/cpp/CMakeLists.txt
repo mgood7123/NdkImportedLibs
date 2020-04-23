@@ -36,28 +36,7 @@ find_library( # Sets the name of the path variable.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
-#set(LIBSDIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../libs/android-${CMAKE_ANDROID_ARCH_ABI})
-set(LIBSDIR ${CMAKE_CURRENT_SOURCE_DIR}/libs/android-${CMAKE_ANDROID_ARCH_ABI})
-
-add_library(avcodec SHARED IMPORTED)
-add_library(avdevice SHARED IMPORTED)
-add_library(avfilter SHARED IMPORTED)
-add_library(avformat SHARED IMPORTED)
-add_library(avutil SHARED IMPORTED)
-add_library(swresample SHARED IMPORTED)
-add_library(swscale SHARED IMPORTED)
-add_library(cpufeatures SHARED IMPORTED)
-add_library(c++_shared SHARED IMPORTED)
-
-set_target_properties(avcodec PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libavcodec.so)
-set_target_properties(avdevice PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libavdevice.so)
-set_target_properties(avfilter PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libavfilter.so)
-set_target_properties(avformat PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libavformat.so)
-set_target_properties(avutil PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libavutil.so)
-set_target_properties(swresample PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libswresample.so)
-set_target_properties(swscale PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libswscale.so)
-set_target_properties(cpufeatures PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libcpufeatures.so)
-set_target_properties(c++_shared PROPERTIES IMPORTED_LOCATION ${LIBSDIR}/libc++_shared.so)
+add_subdirectory(FFMPEG-ANDROID)
 
 target_link_libraries( # Specifies the target library.
                        native-lib
@@ -67,13 +46,5 @@ target_link_libraries( # Specifies the target library.
                        ${log-lib}
 
                        # Include Prebuilt Libraries
-                       avcodec
-                       avdevice
-                       avfilter
-                       avformat
-                       avutil
-                       swresample
-                       swscale
-                       cpufeatures
-                       c++_shared
+                       FFMPEG-ANDROID
 )
